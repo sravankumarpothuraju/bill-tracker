@@ -10,8 +10,10 @@ function App() {
   const [categories, setCategories] = useState([]);
 
   const addCategory = category => {
-    setCategories([...categories, category]);
+    const updatedCategories = [...(categories || []), category];
+    setCategories(updatedCategories);
     setShouldShowAddCategory(false);
+    localStorage.setItem("categories", JSON.stringify(updatedCategories));
   };
 
   return (
