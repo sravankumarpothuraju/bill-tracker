@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import AddCategory from "./components/AddCategory.js";
 import NavBar from "./components/NavBar.js";
@@ -15,6 +15,20 @@ function App() {
     setShouldShowAddCategory(false);
     localStorage.setItem("categories", JSON.stringify(updatedCategories));
   };
+
+  useEffect(() => {
+    const categoriesInLocalStorage = JSON.parse(
+      localStorage.getItem("categories")
+    );
+
+    if (categoriesInLocalStorage !== categories) {
+      setCategories(categoriesInLocalStorage);
+    }
+
+    if (!categoriesInLocalStorage) {
+      setShouldShowAddCategory(true);
+    }
+  }, []);
 
   return (
     <div className="App">
