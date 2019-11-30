@@ -30,12 +30,7 @@ export default props => {
               value={category}
               onChange={handleChange}
             />
-            <button
-              className="flex-no-shrink p-2 border-2 rounded bg-teal text-white border-teal hover:text-white hover:bg-teal"
-              onClick={handleSubmit}
-            >
-              Add
-            </button>
+            <button onClick={handleSubmit}>Add</button>
           </div>
         </div>
       </div>
