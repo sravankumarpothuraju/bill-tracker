@@ -5,6 +5,9 @@ export default props => {
   const triggerShowAddBill = () => {
     props.showAddBill();
   };
+  const removeBill = index => {
+    props.removeBill(index);
+  };
 
   return (
     <table className="table">
@@ -32,6 +35,11 @@ export default props => {
               </td>
               <td>${value.amount}</td>
               <td>{value.category}</td>
+              <td>
+                <button onClick={() => removeBill(index)}>
+                  Delete This Bill
+                </button>
+              </td>
             </tr>
           );
         })}
